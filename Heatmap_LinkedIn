@@ -14,5 +14,5 @@ random_values <-data.frame(
 # Values close to the mean are gray. Values above the mean are more black, and values below the mean are more gold #
 ggplot(random_values, aes(x=x, y=y, fill=value)) +
   geom_tile() +
-  scale_fill_gradient2(high="black",mid="gray",low="gold", midpoint=mean(dd$value, na.rm=T)
+  scale_fill_gradient2(high="black",mid="gray",low="gold", midpoint=mean(random_values$value, na.rm=T)
   )
