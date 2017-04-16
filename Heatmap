@@ -4,12 +4,12 @@
 
 library(ggplot2)
   #sample data with missing values
-dd<-data.frame(
+random_values <-data.frame(
   expand.grid(x=1:100, y=1:100),
   value=rnorm(100*100)
   )
 
-ggplot(dd, aes(x=x, y=y, fill=value)) +
+ggplot(random_values, aes(x=x, y=y, fill=value)) +
   geom_tile() +
   scale_fill_gradient2(high="black",mid="gray",low="gold", midpoint=mean(dd$value, na.rm=T)
   )
