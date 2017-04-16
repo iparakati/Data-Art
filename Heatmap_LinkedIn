@@ -1,14 +1,17 @@
 
 
-# I created the following heatmap using R and ggplot for my cover photo on LinkedIn. 
+#### I created the following heatmap using R and ggplot for my cover photo on LinkedIn. ####
 
 library(ggplot2)
-  #sample data with missing values
+
+### making a grid of random values ###
 random_values <-data.frame(
-  expand.grid(x=1:100, y=1:100),
-  value=rnorm(100*100)
+  expand.grid(x=1:100, y=1:100), # making a 100x100 grid
+  value=rnorm(100*100) # filling this grid 100x100=10,000 values from the standard normal distribution
   )
 
+### visualizing this grid along a color scale ###
+# Values close to the mean are gray. Values above the mean are more black, and values below the mean are more gold #
 ggplot(random_values, aes(x=x, y=y, fill=value)) +
   geom_tile() +
   scale_fill_gradient2(high="black",mid="gray",low="gold", midpoint=mean(dd$value, na.rm=T)
